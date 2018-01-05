@@ -1,0 +1,11 @@
+.game-container {
+  background-color: #f3f3f3;
+  margin: 1em;
+  padding: 0.5em;
+}
+
+.game-stars {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
