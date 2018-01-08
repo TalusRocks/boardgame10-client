@@ -22,16 +22,17 @@ class App extends Component {
     const response = await axios.get(`${baseURL}/games`)
 
     this.setState({
-      games: response
+      ...this.state,
+      games: response.data
     })
-    console.log(this.state.games.data);
+    // console.log(this.state.games, "this.state.games");
   }
 
   render() {
     return (
       <div>
         <Navigation />
-        <GamesList />
+        <GamesList gameList={ this.state.games }/>
       </div>
     );
   }

@@ -1,12 +1,12 @@
 import React from 'react';
 import GameStar from './GameStar';
 
-const Game = ({}) => {
-  
+const Game = ({ gameName }) => {
+  console.log(gameName, "gameName from Game.js");
 
   return (
     <section className="game-container">
-      <h2 className="game-title text-center mtb-05">Game Title</h2>
+      <h2 className="game-title text-center mtb-05">{ gameName }</h2>
       <div className="game-stars mtb-05">
         <GameStar />
       </div>
