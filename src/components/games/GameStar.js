@@ -2,7 +2,7 @@ import React from 'react';
 
 const GameStar = ({}) => {
   return (
-    <i class="material-icons">star_border</i>
+    <i className="material-icons">star_border</i>
   )
 }
 
