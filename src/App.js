@@ -10,29 +10,34 @@ class App extends Component {
     super(props)
 
     this.state = {
-      games: []
+      allChallenges: []
     }
   }
 
   async componentDidMount(){
-    await this.getGameList()
+    await this.getChallenge()
   }
 
-  async getGameList(){
-    const response = await axios.get(`${baseURL}/games`)
+  async getChallenge(){
+    //# hardcoded for now, will pass this variable in later
+    let currentChallenge = 1
 
-    this.setState({
-      ...this.state,
-      games: response.data
+    const response = await axios.get(`${baseURL}/challenge/${currentChallenge}`)
+
+    await this.setState({
+      allChallenges: [...this.state.allChallenges, response.data.challenge]
     })
-    // console.log(this.state.games, "this.state.games");
+
   }
+
 
   render() {
+
     return (
       <div>
         <Navigation />
-        <GamesList gameList={ this.state.games }/>
+        {(this.state.allChallenges.length && <GamesList gameList={ this.state.allChallenges[0].games} />)}
+
       </div>
     );
   }
