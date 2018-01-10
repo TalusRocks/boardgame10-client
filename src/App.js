@@ -36,7 +36,8 @@ class App extends Component {
     return (
       <div>
         <Navigation />
-        {(this.state.allChallenges.length && <GamesList gameList={ this.state.allChallenges[0].games} />)}
+        {(this.state.allChallenges.length && <GamesList
+          gameList={ this.state.allChallenges[0].games} challengeId={1}/>)}
 
       </div>
     );
