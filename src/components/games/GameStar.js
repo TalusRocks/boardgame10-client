@@ -1,4 +1,7 @@
 import React from 'react';
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
+import { createItem } from '../../actions'
 
 const GameStar = ({}) => {
   return (
@@ -6,4 +9,13 @@ const GameStar = ({}) => {
   )
 }
 
-export default GameStar;
+const mapStateToProps = state => ({
+  stars: state.stars
+})
+
+const mapDispatchToProps = dispatch => bindActionCreators({}, dispatch)
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(GameStar)

@@ -3,45 +3,32 @@ import axios from 'axios'
 import Navigation from './components/shared/Navigation'
 import GamesList from './components/games/GamesList'
 import './App.css';
+import { connect } from 'react-redux'
+
 const baseURL = `http://localhost:3000`
 
-class App extends Component {
-  constructor(props){
-    super(props)
-
-    this.state = {
-      allChallenges: []
-    }
-  }
-
-  async componentDidMount(){
-    await this.getChallenge()
-  }
-
-  async getChallenge(){
-    //# hardcoded for now, will pass this variable in later
-    let currentChallenge = 1
-
-    const response = await axios.get(`${baseURL}/challenge/${currentChallenge}`)
-
-    await this.setState({
-      allChallenges: [...this.state.allChallenges, response.data.challenge]
-    })
-
-  }
-
-
-  render() {
-
-    return (
+const App = ({ stars, allChallenges }) => (
+  (stars.length) ?
+    (
       <div>
         <Navigation />
-        {(this.state.allChallenges.length && <GamesList
-          gameList={ this.state.allChallenges[0].games} challengeId={1}/>)}
-
+        {<GamesList
+          gameList={ allChallenges.games } challengeId={1}/>}
       </div>
-    );
-  }
-}
+    ) :
+    'hey you dont got no stars'
+)
 
-export default App;
+//12. OMG. All this down here is how the props get... wait for it.. mapped to state.
+const mapStateToProps = state => ({
+    allChallenges: state.challenges.all,
+    stars: state.stars.all
+  })
+//13 and the dispatches.
+const mapDispatchToProps = state => ({})
+
+//14 and the App.
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(App)

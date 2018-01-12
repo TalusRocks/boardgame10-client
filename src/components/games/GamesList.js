@@ -2,6 +2,7 @@ import React from 'react';
 import Game from './Game';
 
 const GamesList = ({ gameList, challengeId }) => {
+  console.log(gameList);
   return (
     <main className="main-content">
       { gameList.map((el, i) => {
