@@ -1,7 +1,14 @@
 import React from 'react';
 import GameStar from './GameStar';
 
-const Game = ({ gameName, gameStars, challengeId }) => {
+const Game = ({ gameName, gameStars, challengeId, playGoal }) => {
+
+  let remainingStarsNum = playGoal - gameStars.length
+  let remainingStarsHTML = []
+  for (var i = 0; i < remainingStarsNum; i++) {
+    remainingStarsHTML.push(<i key={i} className="material-icons">star_border</i>)
+  }
+
   //ONLY print stars that match the challenge id
   return (
     <section className="game-container">
@@ -10,9 +17,10 @@ const Game = ({ gameName, gameStars, challengeId }) => {
 
         { gameStars.map ((el, i) => {
           if(el.challenge_id === challengeId){
-            return <GameStar key={i}/>
+            return <i key={i} className="material-icons">star</i>
           }
         })}
+        { remainingStarsHTML }
 
       </div>
     </section>
@@ -20,3 +28,5 @@ const Game = ({ gameName, gameStars, challengeId }) => {
 }
 
 export default Game;
+
+// <GameStar key={i}/>

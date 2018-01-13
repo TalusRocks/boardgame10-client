@@ -13,7 +13,9 @@ const App = ({ stars, allChallenges }) => (
       <div>
         <Navigation />
         {<GamesList
-          gameList={ allChallenges.games } challengeId={1}/>}
+          playGoal={ allChallenges.num_plays}
+          gameList={ allChallenges.games }
+          challengeId={1}/>}
       </div>
     ) :
     'hey you dont got no stars'
