@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import axios from 'axios'
-import { BrowserRouter as Router } from 'react-router-dom'
+import { BrowserRouter as Router, Link, Route } from 'react-router-dom'
 
 import CurrentChallenge from './components/games/CurrentChallenge'
+import AddPlay from './components/forms/AddPlay'
 
 import './App.css';
 import { connect } from 'react-redux'
@@ -10,14 +11,23 @@ import { connect } from 'react-redux'
 const baseURL = `http://localhost:3000`
 
 const App = ({ allChallenges }) => (
-  (
+  <Router>
     <div>
-      <CurrentChallenge
-        allChallenges={allChallenges}/>
+    <Route exact path='/challenge/1'
+      component={ (props) => <CurrentChallenge {...props}
+      allChallenges={ allChallenges } /> }/>
+      <Route path='/challenge/1/addplay'
+        component={ AddPlay }/>
     </div>
-  )
+  </Router>
+
+
+
 
 )
+
+{/* <CurrentChallenge
+  allChallenges={ allChallenges }/> */}
 
 {/* <Router>
   <Route path="/" component={GameList}/>
