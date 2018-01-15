@@ -1,0 +1,22 @@
+/*input {
+  width: 100%;
+  height: 3em;
+  font-size: 1em;
+  padding-left: 0.5em;
+}*/
+
+textarea {
+  width: 100%;
+  font-size: 1em;
+  padding: 0.5em;
+}
+
+.close-container {
+  display: flex;
+}
+
+.close {
+  margin-left: auto;
+  padding: 0em 0em 0.5em 0.5em;
+  cursor: pointer;
+}

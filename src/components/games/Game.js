@@ -9,6 +9,8 @@ const Game = ({ gameName, gameStars, challengeId, playGoal }) => {
     remainingStarsHTML.push(<i key={i} className="material-icons">star_border</i>)
   }
 
+  //galvanize rocks
+
   //ONLY print stars that match the challenge id
   return (
     <section className="game-container">
