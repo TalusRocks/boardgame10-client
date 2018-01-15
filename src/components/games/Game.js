@@ -1,15 +1,18 @@
 import React from 'react';
-import GameStar from './GameStar';
+import { Link } from 'react-router-dom'
+// import GameStar from './GameStar';
 
 const Game = ({ gameName, gameStars, challengeId, playGoal }) => {
 
   let remainingStarsNum = playGoal - gameStars.length
   let remainingStarsHTML = []
   for (var i = 0; i < remainingStarsNum; i++) {
-    remainingStarsHTML.push(<i key={i} className="material-icons">star_border</i>)
+    remainingStarsHTML.push(
+      <Link to='/challenge/1/addplay'>
+        <i key={i} className="material-icons">star_border</i>
+      </Link>
+    )
   }
-
-  //galvanize rocks
 
   //ONLY print stars that match the challenge id
   return (

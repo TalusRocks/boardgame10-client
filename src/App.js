@@ -20,18 +20,7 @@ const App = ({ allChallenges }) => (
         component={ AddPlay }/>
     </div>
   </Router>
-
-
-
-
 )
-
-{/* <CurrentChallenge
-  allChallenges={ allChallenges }/> */}
-
-{/* <Router>
-  <Route path="/" component={GameList}/>
-</Router> */}
 
 //12. OMG. All this down here is how the props get... wait for it.. mapped to state.
 const mapStateToProps = state => ({
