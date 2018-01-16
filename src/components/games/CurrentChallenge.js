@@ -2,7 +2,7 @@ import React from 'react';
 import Navigation from '../shared/Navigation'
 import GamesList from './GamesList'
 
-const CurrentChallenge = ({ allChallenges}) => {
+const CurrentChallenge = ({ allChallenges }) => {
 
   return (
     <div>

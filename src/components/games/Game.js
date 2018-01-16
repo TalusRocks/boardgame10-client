@@ -8,7 +8,7 @@ const Game = ({ gameName, gameStars, challengeId, playGoal }) => {
   let remainingStarsHTML = []
   for (var i = 0; i < remainingStarsNum; i++) {
     remainingStarsHTML.push(
-      <Link to='/challenge/1/addplay'>
+      <Link to='/challenge/1/addplay' key={i}>
         <i key={i} className="material-icons">star_border</i>
       </Link>
     )

@@ -22,7 +22,7 @@ const App = ({ allChallenges }) => (
   </Router>
 )
 
-//12. OMG. All this down here is how the props get... wait for it.. mapped to state.
+//12. Here the state maps to the props...
 const mapStateToProps = state => ({
     allChallenges: state.challenges.all,
     stars: state.stars.all

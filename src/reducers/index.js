@@ -1,7 +1,8 @@
 import { combineReducers } from 'redux'
-//7. require that shiz
+//7. require it up
 import { STARS_LOADED,
-        CHALLENGES_LOADED } from '../actions'
+        CHALLENGES_LOADED,
+        ADD_STAR } from '../actions'
 
 function stars(state = { all: [] }, action) {
   switch (action.type) {
@@ -15,7 +16,7 @@ function stars(state = { all: [] }, action) {
   }
 }
 
-//8. Ok, so, the actions coming by dispatch get up in ALLLL these functions, looking for where their action type matches.
+//8. Actions coming by dispatch get up in ALLLL these functions, looking for where their action type matches.
 //9. And you gotta have some empty intial state for it to grab onto the first time React renders
 function challenges(state = { all: { games: [] } }, action) {
 
@@ -31,9 +32,23 @@ function challenges(state = { all: { games: [] } }, action) {
   }
 }
 
+function addStar(state = { all: [] }, action) {
+  switch (action.type) {
+    case ADD_STAR:
+    //?? ********* need to define this state 
+      return {
+        ...state,
+        all: action.stars
+      }
+    default:
+      return state
+  }
+}
+
 
 //11. Export that shiz, then go back to App.js to see how it hooks up!
 export default combineReducers({
   stars,
-  challenges
+  challenges,
+  addStar
 })
