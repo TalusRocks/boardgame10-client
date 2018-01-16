@@ -24,8 +24,7 @@ const App = ({ allChallenges }) => (
 
 //12. Here the state maps to the props...
 const mapStateToProps = state => ({
-    allChallenges: state.challenges.all,
-    stars: state.stars.all
+    allChallenges: state.challenges.all
   })
 //13 and the dispatches.
 const mapDispatchToProps = state => ({})

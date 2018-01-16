@@ -1,14 +1,17 @@
 import React, { Component } from 'react';
 import { bindActionCreators } from 'redux'
-import { Link } from 'react-router-dom'
+import { Link, withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
-import { addStar } from '../../actions'
+import { addStar, fetchChallenges } from '../../actions'
 
 function getComment(newStarPlay, props){
-  return (e) => {
-    e.preventDefault
+  return async (e) => {
+    e.preventDefault()
     newStarPlay.comments = e.target.comment.value
-    props.addStar(newStarPlay)
+    await props.addStar(newStarPlay)
+    //if
+    await props.fetchChallenges(newStarPlay)
+    props.history.push('/challenge/1')
   }
 }
 
@@ -33,11 +36,13 @@ const AddPlay = (props) => {
           </div>
         </Link>
         <h3>Comments</h3>
-        <form onSubmit={ getComment(newStarPlay, props) }>
+        <form onSubmit={getComment(newStarPlay, props)}>
           <textarea name="comment" className="mtb-1" id="play-comments" rows="8">
 
             </textarea>
+
           <button className="button">Save</button>
+
         </form>
       </div>
     )
@@ -47,10 +52,11 @@ const AddPlay = (props) => {
 const mapStateToProps = state => ({})
 //and the dispatches.
 const mapDispatchToProps = dispatch => bindActionCreators({
-  addStar
+  addStar,
+  fetchChallenges
 }, dispatch)
 
-export default connect(
+export default withRouter(connect(
   mapStateToProps,
   mapDispatchToProps
-)(AddPlay)
+)(AddPlay))

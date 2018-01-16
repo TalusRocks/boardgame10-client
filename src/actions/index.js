@@ -1,6 +1,6 @@
 //2. Declare your action type name here
 export const CHALLENGES_LOADED = 'CHALLENGES_LOADED'
-export const STARS_LOADED = 'STARS_LOADED'
+// export const STARS_LOADED = 'STARS_LOADED'
 export const ADD_STAR = 'ADD_STAR'
 
 //3. This is what we called
@@ -19,16 +19,6 @@ export function fetchChallenges() {
   }
 }
 
-export function fetchStars() {
-  return async (dispatch) => {
-    const response = await fetch('http://localhost:3000/challenge/1/stars')
-    const json = await response.json()
-    dispatch({
-      type: STARS_LOADED,
-      stars: json.stars
-    })
-  }
-}
 
 export function addStar(newStarPlay) {
 
@@ -45,9 +35,8 @@ export function addStar(newStarPlay) {
     const json = await response.json()
 
     dispatch({
-      type: ADD_STAR,
-      payload: json
+      type: ADD_STAR
     })
   }
-  
+
 }

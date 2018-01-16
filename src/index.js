@@ -10,12 +10,10 @@ import './css/forms.css';
 
 import store from './store'
 import { Provider } from 'react-redux'
-import { fetchStars, fetchChallenges, addStar } from './actions'
+import { fetchChallenges } from './actions'
 
 // 1. initialize data, then go to actions/index.js
-store.dispatch(fetchStars())
 store.dispatch(fetchChallenges())
-store.dispatch(addStar())
 
 // start our application
 ReactDOM.render(
