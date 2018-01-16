@@ -30,12 +30,26 @@ export function fetchStars() {
   }
 }
 
-export function addStar() {
+export function addStar(newStarPlay) {
+console.log(newStarPlay, "newStarPlay");
+
   return async (dispatch) => {
-    const response = await fetch('http://localhost:3000/challenge/1')
+    console.log(newStarPlay, "inside dispatch async");
+    const response = await fetch('http://localhost:3000/challenge/1', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      },
+      body: JSON.stringify( newStarPlay )
+    })
     const json = await response.json()
+
+    console.log(json, "json");
+
     dispatch({
-      type: ADD_STAR
+      type: ADD_STAR,
+      payload: json
     })
   }
 }
