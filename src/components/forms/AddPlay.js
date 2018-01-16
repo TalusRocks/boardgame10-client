@@ -4,32 +4,27 @@ import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { addStar } from '../../actions'
 
-class AddPlay extends Component {
-  constructor(props){
-    super(props)
+function getComment(newStarPlay, props){
+  return (e) => {
+    e.preventDefault
+    newStarPlay.comments = e.target.comment.value
+    props.addStar(newStarPlay)
+  }
+}
+
+const AddPlay = (props) => {
 
     //get gameid and challengeid from URL params
     let fullURL = new URL(window.location)
     let searchParams = fullURL.searchParams
-    this.challengeid = searchParams.get("challengeid")
-    this.gameid = searchParams.get("gameid")
+    let challengeid = searchParams.get("challengeid")
+    let gameid = searchParams.get("gameid")
 
-  }
-
-  getComment = (e) => {
-    // this.setState({...this.state, comments: e.target.value})
-    e.preventDefault()
-    // console.log(e.target.comment.value, "VALUE!!")
     let newStarPlay = {
-      game_id: this.gameid,
-      challenge_id: this.challengeid,
-      comments: e.target.comment.value
+      game_id: gameid,
+      challenge_id: challengeid
     }
-    this.props.addStar(newStarPlay)
 
-  }
-
-  render() {
     return (
       <div className="m-1">
         <Link to='/challenge/1'>
@@ -38,7 +33,7 @@ class AddPlay extends Component {
           </div>
         </Link>
         <h3>Comments</h3>
-        <form onSubmit={ this.getComment }>
+        <form onSubmit={ getComment(newStarPlay, props) }>
           <textarea name="comment" className="mtb-1" id="play-comments" rows="8">
 
             </textarea>
@@ -46,7 +41,6 @@ class AddPlay extends Component {
         </form>
       </div>
     )
-  }
 }
 
 // Here the state maps to the props...

@@ -31,10 +31,9 @@ export function fetchStars() {
 }
 
 export function addStar(newStarPlay) {
-console.log(newStarPlay, "newStarPlay");
 
   return async (dispatch) => {
-    console.log(newStarPlay, "inside dispatch async");
+
     const response = await fetch('http://localhost:3000/challenge/1', {
       method: 'POST',
       headers: {
@@ -45,11 +44,10 @@ console.log(newStarPlay, "newStarPlay");
     })
     const json = await response.json()
 
-    console.log(json, "json");
-
     dispatch({
       type: ADD_STAR,
       payload: json
     })
   }
+  
 }
