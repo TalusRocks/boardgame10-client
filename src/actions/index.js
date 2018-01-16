@@ -1,9 +1,8 @@
-//2. Declare your action type name here
+//2. Declare your action type names here
 export const CHALLENGES_LOADED = 'CHALLENGES_LOADED'
-// export const STARS_LOADED = 'STARS_LOADED'
 export const ADD_STAR = 'ADD_STAR'
 
-//3. This is what we called
+//3. This is what we called to load page from src/index.js
 export function fetchChallenges() {
   //4. hold on a sec while I go get some data
   return async (dispatch) => {
@@ -19,11 +18,10 @@ export function fetchChallenges() {
   }
 }
 
-
+//this action handles ADDING stars (plays) only; use fetchChallenges above to re-render 
 export function addStar(newStarPlay) {
 
   return async (dispatch) => {
-
     const response = await fetch('http://localhost:3000/challenge/1', {
       method: 'POST',
       headers: {
