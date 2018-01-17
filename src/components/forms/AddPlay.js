@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { bindActionCreators } from 'redux'
 import { Link, withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
@@ -9,7 +9,7 @@ function getComment(newStarPlay, props){
     e.preventDefault()
     newStarPlay.comments = e.target.comment.value
     await props.addStar(newStarPlay)
-    //if
+    //can insert an if here to show a completed challenge page, if completed
     await props.fetchChallenges(newStarPlay)
     props.history.push('/challenge/1')
   }
@@ -37,12 +37,8 @@ const AddPlay = (props) => {
         </Link>
         <h3>Comments</h3>
         <form onSubmit={getComment(newStarPlay, props)}>
-          <textarea name="comment" className="mtb-1" id="play-comments" rows="8">
-
-            </textarea>
-
+          <textarea name="comment" className="mtb-1" id="play-comments" rows="8"></textarea>
           <button className="button">Save</button>
-
         </form>
       </div>
     )

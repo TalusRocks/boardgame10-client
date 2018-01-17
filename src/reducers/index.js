@@ -1,7 +1,6 @@
 import { combineReducers } from 'redux'
 //7. require it up
-import { CHALLENGES_LOADED,
-         ADD_STAR } from '../actions'
+import { CHALLENGES_LOADED } from '../actions'
 
 
 //8. Actions coming by dispatch get IN these functions, looking for where their action type matches.
