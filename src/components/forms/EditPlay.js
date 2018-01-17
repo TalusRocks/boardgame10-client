@@ -2,7 +2,7 @@ import React from 'react';
 import { bindActionCreators } from 'redux'
 import { Link, withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
-import { editStar } from '../../actions'
+import { editStar, fetchChallenges } from '../../actions'
 
 function editComment(id, props){
   return async (e) => {
@@ -11,7 +11,7 @@ function editComment(id, props){
     let editedStarPlay = e.target.comment.value
 
     await props.editStar(id, editedStarPlay)
-
+    await props.fetchChallenges(editedStarPlay)
     props.history.push('/challenge/1')
   }
 }
@@ -34,7 +34,7 @@ const EditPlay = (props) => {
       <h3>Comments</h3>
       <form onSubmit={editComment(starId, props)}>
         <textarea name="comment" className="mtb-1" id="play-comments" rows="8" defaultValue={ starComments }></textarea>
-        <button className="button delete">Delete Play</button>
+        {/* <button className="button delete">Delete Play</button> */}
         <button className="button mt-1">Update Play</button>
       </form>
     </div>
@@ -49,7 +49,8 @@ const EditPlay = (props) => {
 const mapStateToProps = state => ({})
 //and the dispatches.
 const mapDispatchToProps = dispatch => bindActionCreators({
-  editStar
+  editStar,
+  fetchChallenges
 }, dispatch)
 
 export default withRouter(connect(

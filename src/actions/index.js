@@ -38,14 +38,16 @@ export function addStar(newStarPlay) {
 
 export function editStar(id, editedStarPlay) {
   return async (dispatch) => {
-    await fetch(`http://localhost:3000/challenge/1/stars/${id}`, {
+    const body = {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
         'Accept': 'application/json'
       },
-      body: JSON.stringify( editedStarPlay )
-    })
+      body: JSON.stringify( { comments: editedStarPlay } )
+    }
+    console.log(id, body)
+    await fetch(`http://localhost:3000/challenge/1/stars/${id}`, body)
 
     dispatch({
       type: EDIT_STAR
