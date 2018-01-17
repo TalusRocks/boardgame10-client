@@ -11,26 +11,25 @@ Aside from building a handy tool, my goal in this project is also to learn and p
 Future goals for this project include hooking up to the Board Game Geek API and providing user sign up and log in.
 
 
-home view:
+.
 
 <kbd>
   <img src="./readme-images/home.png" width="350px" alt="home view">
 </kbd>
 
-
-add play view:
+.
 
 <kbd>
   <img src="./readme-images/add.png" width="350px" alt="add view">
 </kbd>
 
-
-edit or delete play view:
+.
 
 <kbd>
   <img src="./readme-images/edit.png" width="350px" alt="edit view">
 </kbd>
 
+.
 
 
 - [Backend repo](https://github.com/TalusRocks/boardgame10-server)
