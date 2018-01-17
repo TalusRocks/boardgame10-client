@@ -21,7 +21,7 @@ const App = ({ allChallenges }) => (
     <Route path='/challenge/1/addplay'
       component={ AddPlay }/>
     <Route path='/challenge/1/editplay'   component={ EditPlay }/>
-    
+
     </div>
   </Router>
 )

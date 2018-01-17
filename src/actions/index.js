@@ -21,9 +21,7 @@ export function fetchChallenges() {
 
 //this action handles ADDING stars (plays) only; use fetchChallenges above to re-render
 export function addStar(newStarPlay) {
-
   return async (dispatch) => {
-
     await fetch('http://localhost:3000/challenge/1', {
       method: 'POST',
       headers: {
@@ -32,19 +30,15 @@ export function addStar(newStarPlay) {
       },
       body: JSON.stringify( newStarPlay )
     })
-
     dispatch({
       type: ADD_STAR
     })
   }
-
 }
 
 export function editStar(id, editedStarPlay) {
-
   return async (dispatch) => {
-
-    const response = await fetch('http://localhost:3000/challenge/1', {
+    await fetch(`http://localhost:3000/challenge/1/stars/${id}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
@@ -52,8 +46,6 @@ export function editStar(id, editedStarPlay) {
       },
       body: JSON.stringify( editedStarPlay )
     })
-
-    const json = await response.json()
 
     dispatch({
       type: EDIT_STAR

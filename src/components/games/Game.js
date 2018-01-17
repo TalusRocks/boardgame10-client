@@ -14,7 +14,7 @@ const Game = ({ gameId, gameName, gameStars, challengeId, playGoal }) => {
         <i key={i}
           data-challengeid={challengeId}
           data-gameid={gameId}
-          className="material-icons">
+          className="material-icons star-border">
           star_border</i>
       </Link>
     )
@@ -29,11 +29,11 @@ const Game = ({ gameId, gameName, gameStars, challengeId, playGoal }) => {
 
         { gameStars.map ((el, i) => {
             return (
-              <Link to={`/challenge/1/editplay/?starid=${el.id}`} key={i}>
+              <Link to={`/challenge/1/editplay/?starid=${el.id}&comments=${el.comments}`} key={i}>
               <i key={i}
                 data-starid={el.id}
                 data-gameid={el.game_id}
-                className="material-icons">
+                className="material-icons star-fill">
                 star</i>
               </Link>
             )

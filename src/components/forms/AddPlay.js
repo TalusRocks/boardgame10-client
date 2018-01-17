@@ -38,7 +38,7 @@ const AddPlay = (props) => {
         <h3>Comments</h3>
         <form onSubmit={getComment(newStarPlay, props)}>
           <textarea name="comment" className="mtb-1" id="play-comments" rows="8"></textarea>
-          <button className="button">Save</button>
+          <button className="button">Add Play</button>
         </form>
       </div>
     )

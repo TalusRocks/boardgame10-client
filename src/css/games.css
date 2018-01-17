@@ -1,5 +1,6 @@
 .game-container {
-  background-color: #f3f3f3;
+  /*background-color: #f3f3f3;*/
+  border: 1px solid #E0E0E0;
   margin: 1em;
   padding: 0.5em;
 }
@@ -8,4 +9,15 @@
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
+}
+
+.star-border, .star-fill {
+  color: #FFC107;
+  transition: all 0.2s ease-in-out;
+  font-size: 28px;
+}
+
+.star-border:hover, .star-fill:hover {
+  color: #ffa000;
+  transform: scale(1.2)
 }
